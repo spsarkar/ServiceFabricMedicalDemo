@@ -1,0 +1,1 @@
+C:\SourceCode\Combinostic\ServiceFabric\Combinostic.Demo.WebApplication\WebServiceApplication\obj\x64\Release\WebServiceApplication.sfprojResolveAssemblyReference.cache

@@ -1,0 +1,11 @@
+﻿
+.fingerprint-node {
+    display: inline-block;
+    border-radius: 2px;
+    border: solid 1px #999999;
+}
+
+.fingerprint-distributions-flash {
+    color: #a3c4fc;
+    vertical-align: central;
+}

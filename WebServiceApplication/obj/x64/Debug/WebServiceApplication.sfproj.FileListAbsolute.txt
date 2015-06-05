@@ -1,0 +1,2 @@
+C:\Users\suprasan\source\servicefabric-samples\samples\Services\VS2015\WebApplication\WebServiceApplication\obj\x64\Debug\WebServiceApplication.sfprojResolveAssemblyReference.cache
+C:\SourceCode\Combinostic\ServiceFabric\Combinostic.Demo.WebApplication\WebServiceApplication\obj\x64\Debug\WebServiceApplication.sfprojResolveAssemblyReference.cache
