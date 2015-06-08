@@ -1,4 +1,4 @@
-﻿namespace WebService
+﻿namespace WebServiceFrontEnd
 {
     using System.Configuration;
     using Nancy;

@@ -15,6 +15,8 @@
     <None Include="Scripts\Utilities.psm1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebApplicationServer.Service\WebApplicationServer.Service.csproj" />
+    <ProjectReference Include="..\WebApplicationServer.WebService\WebApplicationServer.WebService.csproj" />
     <ProjectReference Include="..\WebService\WebServiceFrontEnd.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.targets" />

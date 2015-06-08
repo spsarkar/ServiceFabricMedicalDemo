@@ -1,2 +1,3 @@
 C:\SourceCode\Combinostic\ServiceFabric\Combinostic.Demo.WebApplication\WebServiceApplication\obj\x64\Debug\WebServiceFrontEndApplication.sfprojResolveAssemblyReference.cache
 C:\SourceCode\Combinostic\ServiceFabric\ServiceFabricMedical.Demo.WebApplication\WebServiceApplication\obj\x64\Debug\WebServiceFrontEndApplication.sfprojResolveAssemblyReference.cache
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebServiceApplication\obj\x64\Debug\WebServiceFrontEndApplication.sfprojResolveAssemblyReference.cache

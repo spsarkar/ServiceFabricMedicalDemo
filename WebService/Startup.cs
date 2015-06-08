@@ -3,9 +3,9 @@
 //  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
 // ------------------------------------------------------------
 using Microsoft.Owin;
-//[assembly: OwinStartup(typeof (WebService), WebService.ConfigurationMethodName)]
+//[assembly: OwinStartup(typeof (WebServiceFrontEnd), WebServiceFrontEnd.ConfigurationMethodName)]
 
-namespace WebService
+namespace WebServiceFrontEnd
 {
     using System.Web.Http;
     using System.Configuration;

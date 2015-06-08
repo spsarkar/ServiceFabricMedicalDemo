@@ -1,4 +1,4 @@
-﻿namespace WebService
+﻿namespace WebServiceFrontEnd
 {
     using Nancy;
 

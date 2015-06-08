@@ -3,7 +3,7 @@
 //  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
 // ------------------------------------------------------------
 
-namespace WebService
+namespace WebServiceFrontEnd
 {
     using System;
     using System.Fabric;
@@ -20,7 +20,7 @@ namespace WebService
                     // This is the name of the ServiceType that is registered with FabricRuntime. 
                     // This name must match the name defined in the ServiceManifest. If you change
                     // this name, please change the name of the ServiceType in the ServiceManifest.
-                    fabricRuntime.RegisterServiceType("WebServiceType", typeof(WebService));
+                    fabricRuntime.RegisterServiceType("WebServiceTypeFrontEnd", typeof(WebServiceFrontEnd));
 
                     Thread.Sleep(Timeout.Infinite);
                 }
