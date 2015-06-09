@@ -20,10 +20,7 @@ export default class ConnectionStatus {
 function updateStatus(self) {
     $.ajax({
         type: 'GET',
-        url: self.config.apiBaseUrl + '/api/ping/',
-        beforeSend: xhr => {
-            xhr.setRequestHeader('Authorization', 'Bearer ' + self.config.user.idToken)
-        }
+        url: self.config.apiBaseUrl + '/analyze/ping/'
     }).done((response) => {
         self.apiMessage = response.Name
         self.apiStatus = 'success'
@@ -38,7 +35,7 @@ function updateStatus(self) {
 
     $.ajax({
         type: 'GET',
-        url: self.config.agentBaseUrl + '/api/ping/'
+        url: self.config.apiBaseUrl + '/analyze/ping/'
     }).done((response) => {
         self.agentMessage = response
         self.agentStatus = 'success'
