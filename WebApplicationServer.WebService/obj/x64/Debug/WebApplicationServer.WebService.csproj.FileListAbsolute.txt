@@ -30,3 +30,6 @@ C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplica
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\obj\x64\Debug\WebApplicationServer.WebService.pdb
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\WebApplicationServer.Common.dll
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\WebApplicationServer.Common.pdb
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\System.Web.Cors.dll
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\System.Web.Http.Cors.dll
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\System.Web.Http.Cors.xml

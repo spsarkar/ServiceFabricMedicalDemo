@@ -18,10 +18,14 @@ namespace WebApplicationServer.WebService.Controllers
     using System.Threading.Tasks;
     using System.Web.Http;
     using Microsoft.ServiceFabric.Services;
+    using System.Web;
+    using System.Web.Http.Cors;
 
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     /// <summary>
     /// Default controller.
     /// </summary>
+
     public class DefaultController : ApiController
     {
         private const string WordCountServiceName = "fabric:/WebServiceFrontEndApplication/WebApplicationServerService";
@@ -40,6 +44,61 @@ namespace WebApplicationServer.WebService.Controllers
         {
             return this.View("WebApplicationServer.WebService.wwwroot.Index.html", "text/html");
         }
+
+        [HttpGet]
+        public HttpResponseMessage ping()
+        {
+            HttpResponseMessage message = new HttpResponseMessage();
+            message.Content = new StringContent("Agent API is Live", Encoding.UTF8, "text/html");
+            message.Content.Headers.Add("Access-Control-Allow-Origin", "*");
+            return message;
+        }
+
+        public async Task<HttpResponseMessage> upload()
+        {
+            // Check if the request contains multipart/form-data.
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+
+            string root = HttpContext.Current.Server.MapPath("~/App_Data");
+            var provider = new MultipartFormDataStreamProvider(root);
+
+            try
+            {
+                StringBuilder sb = new StringBuilder(); // Holds the response body
+
+                // Read the form data and return an async task.
+                await Request.Content.ReadAsMultipartAsync(provider);
+
+                // This illustrates how to get the form data.
+                foreach (var key in provider.FormData.AllKeys)
+                {
+                    foreach (var val in provider.FormData.GetValues(key))
+                    {
+                        sb.Append(string.Format("{0}: {1}\n", key, val));
+                    }
+                }
+
+                // This illustrates how to get the file names for uploaded files.
+                foreach (var file in provider.FileData)
+                {
+                    FileInfo fileInfo = new FileInfo(file.LocalFileName);
+                    sb.Append(string.Format("Uploaded file: {0} ({1} bytes)\n", fileInfo.Name, fileInfo.Length));
+                }
+
+                HttpResponseMessage message = new HttpResponseMessage();
+                message.Content = new StringContent(sb.ToString());
+                message.Content.Headers.Add("Access-Control-Allow-Origin", "*");
+                return message;
+            }
+            catch (System.Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+            }
+        }
+
 
         [HttpGet]
         public async Task<HttpResponseMessage> Count()

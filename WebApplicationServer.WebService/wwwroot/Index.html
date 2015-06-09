@@ -59,7 +59,7 @@
         function SendWords()
         {
             $.ajax({
-                url: serviceUrl + '/wordcount/AddWord/' + randomWord(),
+                url: serviceUrl + '/analyze/AddWord/' + randomWord(),
                 method: 'POST'
             })
            .done(function (wordResult) {
@@ -70,7 +70,7 @@
         function Count()
         {
             $.ajax({
-                url: serviceUrl + '/wordcount/Count?c=' + Math.random(),
+                url: serviceUrl + '/analyze/Count?c=' + Math.random(),
                 dataType: 'text',
                 method: 'GET'
             })

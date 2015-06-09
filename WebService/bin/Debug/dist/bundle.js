@@ -141,10 +141,7 @@
 	function updateStatus(self) {
 	    $.ajax({
 	        type: "GET",
-	        url: self.config.apiBaseUrl + "/api/ping/",
-	        beforeSend: function (xhr) {
-	            xhr.setRequestHeader("Authorization", "Bearer " + self.config.user.idToken);
-	        }
+	        url: self.config.apiBaseUrl + "/analyze/ping/",
 	    }).done(function (response) {
 	        self.apiMessage = response.Name;
 	        self.apiStatus = "success";
@@ -157,7 +154,7 @@
 	
 	    $.ajax({
 	        type: "GET",
-	        url: self.config.agentBaseUrl + "/api/ping/"
+	        url: self.config.apiBaseUrl + "/analyze/ping/"
 	    }).done(function (response) {
 	        self.agentMessage = response;
 	        self.agentStatus = "success";
@@ -209,7 +206,7 @@
 	            value: function apply($elem) {
 	                var self = this;
 	                $elem.fileupload({
-	                    url: this.config.apiBaseUrl + "/api/upload",
+	                    url: this.config.apiBaseUrl + "/analyze/upload",
 	                    dataType: "json",
 	                    beforeSend: function beforeSend(xhr) {
 	                        xhr.setRequestHeader("Authorization", "Bearer " + self.config.user.idToken);

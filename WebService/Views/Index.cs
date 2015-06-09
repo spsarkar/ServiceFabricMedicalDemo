@@ -14,8 +14,8 @@
             {
                 var model = new
                 {
-                    ApiBaseUrl = "https://localhost:44302",
-                    AgentBaseUrl = "https://localhost:44304"
+                    ApiBaseUrl = "http://localhost:44302",
+                    AgentBaseUrl = "http://localhost:44304"
                 };
                 return View["index", model];
             };

@@ -16,4 +16,3 @@ C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplica
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.Common\bin\x64\Debug\WebApplicationServer.Common.pdb
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.Common\obj\x64\Debug\WebApplicationServer.Common.dll
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.Common\obj\x64\Debug\WebApplicationServer.Common.pdb
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.Common\obj\x64\Debug\WebApplicationServer.Common.csprojResolveAssemblyReference.cache

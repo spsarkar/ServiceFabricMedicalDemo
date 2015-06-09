@@ -154,9 +154,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dist\bundle.js.map">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="PackageRoot\ServiceManifest.xml" />
     <None Include="App.config">
       <SubType>Designer</SubType>

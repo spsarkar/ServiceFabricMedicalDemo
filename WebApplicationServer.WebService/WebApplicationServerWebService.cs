@@ -20,7 +20,7 @@ namespace WebApplicationServer.WebService
         /// <returns>The OWIN communication listener.</returns>
         protected override ICommunicationListener CreateCommunicationListener()
         {
-            return new OwinCommunicationListener("wordcount", new Startup());
+            return new OwinCommunicationListener("analyze", new Startup());
         }
     }
 }
