@@ -54,6 +54,7 @@ namespace WebApplicationServer.WebService.Controllers
             return message;
         }
 
+        [HttpGet]
         public async Task<HttpResponseMessage> upload()
         {
             // Check if the request contains multipart/form-data.
@@ -89,7 +90,7 @@ namespace WebApplicationServer.WebService.Controllers
                 }
 
                 HttpResponseMessage message = new HttpResponseMessage();
-                message.Content = new StringContent(sb.ToString());
+                message.Content = new StringContent(sb.ToString(), Encoding.UTF8, "text/html");
                 message.Content.Headers.Add("Access-Control-Allow-Origin", "*");
                 return message;
             }

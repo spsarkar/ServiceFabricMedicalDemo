@@ -206,11 +206,7 @@
 	            value: function apply($elem) {
 	                var self = this;
 	                $elem.fileupload({
-	                    url: this.config.apiBaseUrl + "/analyze/upload",
-	                    dataType: "json",
-	                    beforeSend: function beforeSend(xhr) {
-	                        xhr.setRequestHeader("Authorization", "Bearer " + self.config.user.idToken);
-	                    },
+	                    url: this.config.apiBaseUrl + "/analyze/Submit/upload",
 	                    add: function add(e, data) {
 	                        self.trigger(self.FILE_ADDED, data);
 	                    },
