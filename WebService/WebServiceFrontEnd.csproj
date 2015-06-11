@@ -199,21 +199,7 @@
     <Content Include="js\fingerprint\FingerprintTree.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="js\images\ImageLoader.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\images\ImageViewer.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\images\NiftiGzipUint16Image.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\images\NiftiGzipUint8Image.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\io\FileUploader.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="js\index.js" />
     <Content Include="js\views\app-content.tag.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

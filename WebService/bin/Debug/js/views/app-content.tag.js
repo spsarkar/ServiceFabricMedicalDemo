@@ -7,7 +7,6 @@ import '../fingerprint/FingerprintNodeDistributions.js'
 import '../fingerprint/FingerprintInfluence.js'
 
 import './file-uploader.tag'
-import './image-viewer.tag'
 
 riot.tag('app-content',
 
@@ -20,7 +19,6 @@ riot.tag('app-content',
                         <div class="row">
                             <file-uploader file_uploader={opts.fileUploader}></file-uploader>
                             <div style="margin:0 0 10px" class="col-sm-12"></div>
-                            <image-viewer image_viewer={opts.imageViewer}></image-viewer>
                             <div style="margin:0 0 10px" class="col-sm-12"></div>
                             <div class="col-sm-12">
                                 <div id="progress-bar-container" class="progress progress-striped active center-block" style="height:24px">

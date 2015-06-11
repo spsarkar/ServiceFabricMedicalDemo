@@ -8,6 +8,11 @@ module.exports = {
     devtool: 'source-map',
 
     module: {
+        resolveLoader: {
+            modulesDirectories: [
+                'C:/Users/suprasan/AppData/Roaming/npm/node_modules'
+            ]
+        },
         loaders: [
             {
                 test: /\.js$/,
