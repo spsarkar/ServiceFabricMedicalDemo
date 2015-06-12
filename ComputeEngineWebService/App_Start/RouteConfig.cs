@@ -23,6 +23,13 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine
                 );
 
             routes.MapHttpRoute(
+               name: "ping",
+               routeTemplate: "{action}",
+               defaults: new { controller = "Default", action = "ping" },
+               constraints: new { }
+               );
+
+            routes.MapHttpRoute(
                 name: "GetActorID",
                 routeTemplate: "{action}",
                 defaults: new {controller = "Default", action = "GetActorID"},

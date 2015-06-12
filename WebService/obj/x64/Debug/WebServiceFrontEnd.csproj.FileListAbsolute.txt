@@ -101,20 +101,14 @@ C:\SourceCode\Combinostic\ServiceFabric\ServiceFabricMedical.Demo.WebApplication
 C:\SourceCode\Combinostic\ServiceFabric\ServiceFabricMedical.Demo.WebApplication\WebService\obj\x64\Debug\WebService.pdb
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\css\cornerstone.css
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\css\dragdrop.css
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\css\fingerprint.css
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\css\index.css
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\dist\bundle.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\config\Config.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\config\User.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\connections\ConnectionStatus.js
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\fingerprint\FingerprintInfluence.js
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\fingerprint\FingerprintNodeDistributions.js
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\fingerprint\FingerprintTree.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\views\app-content.tag.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\views\app-footer.tag.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\views\app-header.tag.js
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\views\file-uploader.tag.js
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\js\views\image-viewer.tag.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\lib\bootstrap.min.css
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\lib\bootstrap.min.js
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\lib\cornerstone.js
@@ -193,4 +187,3 @@ C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\WebServiceFrontEnd.pdb
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\obj\x64\Debug\WebServiceFrontEnd.exe
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\obj\x64\Debug\WebServiceFrontEnd.pdb
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\obj\x64\Debug\WebServiceFrontEnd.csprojResolveAssemblyReference.cache

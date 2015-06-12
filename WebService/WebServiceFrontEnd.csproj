@@ -166,13 +166,11 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup>
+    <Content Include="css\appcontent.css" />
     <Content Include="css\cornerstone.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="css\dragdrop.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="css\fingerprint.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="css\index.css">
@@ -190,15 +188,6 @@
     <Content Include="js\connections\ConnectionStatus.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="js\fingerprint\FingerprintInfluence.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\fingerprint\FingerprintNodeDistributions.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\fingerprint\FingerprintTree.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="js\index.js" />
     <Content Include="js\views\app-content.tag.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -209,12 +198,7 @@
     <Content Include="js\views\app-header.tag.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="js\views\file-uploader.tag.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="js\views\image-viewer.tag.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="js\views\app-result.tag.js" />
     <Content Include="lib\bootstrap.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

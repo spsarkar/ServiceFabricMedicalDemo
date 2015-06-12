@@ -32,3 +32,8 @@ C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEng
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\bin\Debug\ComputeEngineWebService.pdb
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\obj\x64\Debug\ComputeEngineWebService.exe
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\obj\x64\Debug\ComputeEngineWebService.pdb
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\bin\Debug\Microsoft.Owin.Cors.dll
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\bin\Debug\System.Web.Cors.dll
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\bin\Debug\System.Web.Http.Cors.dll
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\bin\Debug\Microsoft.Owin.Cors.xml
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineWebService\bin\Debug\System.Web.Http.Cors.xml

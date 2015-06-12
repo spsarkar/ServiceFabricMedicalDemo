@@ -12,12 +12,16 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
     using System.Text;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using Microsoft.Azure.Service.Fabric.ComputeEngine.Interfaces;
     using Microsoft.ServiceFabric.Actors;
 
     /// <summary>
     /// Default controller.
     /// </summary>
+    /// 
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
     public class DefaultController : ApiController
     {
         private static Uri serviceUri = new Uri("fabric:/ComputeEngineApplication/ComputeEngineActorService");
@@ -30,6 +34,15 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
             //TODO: Add error handling.
 
             return this.View("Microsoft.Azure.Service.Fabric.ComputeEngine.wwwroot.Index.html", "text/html");
+        }
+
+        [HttpGet]
+        public HttpResponseMessage ping()
+        {
+            HttpResponseMessage message = new HttpResponseMessage();
+            message.Content = new StringContent("Compute Agent API is Live", Encoding.UTF8, "text/html");
+            message.Content.Headers.Add("Access-Control-Allow-Origin", "*");
+            return message;
         }
 
         [HttpGet]

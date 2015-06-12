@@ -22,7 +22,7 @@ function updateStatus(self) {
         type: 'GET',
         url: self.config.apiBaseUrl + '/analyze/ping/'
     }).done((response) => {
-        self.apiMessage = response.Name
+        self.apiMessage = response.response
         self.apiStatus = 'success'
     })
     .error(() => {
@@ -35,7 +35,7 @@ function updateStatus(self) {
 
     $.ajax({
         type: 'GET',
-        url: self.config.apiBaseUrl + '/analyze/ping/'
+        url: self.config.agentBaseUrl + '/voicemailbox/ping/'
     }).done((response) => {
         self.agentMessage = response
         self.agentStatus = 'success'

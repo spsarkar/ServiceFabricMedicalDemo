@@ -6,6 +6,7 @@
 namespace Microsoft.Azure.Service.Fabric.ComputeEngine
 {
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using global::Owin;
 
     public class Startup : IOwinAppBuilder
@@ -15,10 +16,12 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine
             System.Net.ServicePointManager.DefaultConnectionLimit = 256;
 
             HttpConfiguration config = new HttpConfiguration();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
             FormatterConfig.ConfigureFormatters(config.Formatters);
             RouteConfig.RegisterRoutes(config.Routes);
-
+            appBuilder.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             appBuilder.UseWebApi(config);
         }
     }

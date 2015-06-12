@@ -13,4 +13,3 @@ C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEng
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngine.Interfaces\bin\x64\Debug\ComputeEngine.Interfaces.pdb
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngine.Interfaces\obj\x64\Debug\ComputeEngine.Interfaces.dll
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngine.Interfaces\obj\x64\Debug\ComputeEngine.Interfaces.pdb
-C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngine.Interfaces\obj\x64\Debug\ComputeEngine.Interfaces.csprojResolveAssemblyReference.cache
