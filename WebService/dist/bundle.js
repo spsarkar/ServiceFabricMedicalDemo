@@ -48,43 +48,68 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	__webpack_require__(1);
+	__webpack_require__(3);
 	
-	var _configConfig = __webpack_require__(5);
+	var _configConfig = __webpack_require__(7);
 	
 	var _configConfig2 = _interopRequireDefault(_configConfig);
 	
-	var _connectionsConnectionStatus = __webpack_require__(12);
+	var _connectionsConnectionStatus = __webpack_require__(14);
 	
 	var _connectionsConnectionStatus2 = _interopRequireDefault(_connectionsConnectionStatus);
 	
-	__webpack_require__(14);
+	__webpack_require__(1);
 	
 	__webpack_require__(15);
 	
 	__webpack_require__(16);
-	
-	__webpack_require__(17);
 	
 	var config = new _configConfig2['default']();
 	var connectionStatus = new _connectionsConnectionStatus2['default'](config);
 	
 	riot.mount('app-header', config.user);
 	riot.mount('app-content', connectionStatus);
-	riot.mount('app-result', connectionStatus);
 	riot.mount('app-footer', connectionStatus);
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _riot = __webpack_require__(2);
+	
+	var _riot2 = _interopRequireDefault(_riot);
+	
+	_riot2['default'].tag('app-header', '<nav role="navigation" class="navbar navbar-default">\n        <div class="container">\n            <div class="navbar-header">\n                <button type="button" data-target="#menu" data-toggle="collapse" class="navbar-toggle">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a href="#" class="navbar-brand">Service Fabric Multi Deployment Demo</a>\n            </div>\n            <div id="menu" class="collapse navbar-collapse">\n                <ul class="nav navbar-nav navbar-right">\n                    <li><a href="#/profile">Signed in as <span class="username"></span></a></li>\n                    <li><a id="logout" href="#">Logout</a></li>\n                </ul>            \n            </div>\n        </div>\n    </nav>', function (user) {
+	
+	    this.on('mount', function () {
+	        $('.username').html(user.profile.name);
+	        $('#logout').on('click', function () {
+	            user.logout();
+	        });
+	    });
+	});
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = riot;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(2);
+	var content = __webpack_require__(4);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(6)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -101,14 +126,14 @@
 	}
 
 /***/ },
-/* 2 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
+	exports = module.exports = __webpack_require__(5)();
 	exports.push([module.id, "html {\r\n    position: relative;\r\n    min-height: 100%;\r\n}\r\n\r\nbody {\r\n    /* Margin bottom by footer height */\r\n    margin-bottom: 60px;\r\n    background: ghostwhite; \r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 0;\r\n  width: 100%;\r\n  /* Set the fixed height of the footer here */\r\n  height: 60px;\r\n  background-color: #f5f5f5;\r\n}\r\n", ""]);
 
 /***/ },
-/* 3 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -163,7 +188,7 @@
 	};
 
 /***/ },
-/* 4 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -388,7 +413,7 @@
 
 
 /***/ },
-/* 5 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -401,11 +426,11 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _jquery = __webpack_require__(6);
+	var _jquery = __webpack_require__(8);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _user = __webpack_require__(7);
+	var _user = __webpack_require__(9);
 	
 	var _user2 = _interopRequireDefault(_user);
 	
@@ -421,13 +446,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 6 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = jQuery;
 
 /***/ },
-/* 7 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -442,7 +467,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _jwtDecode = __webpack_require__(8);
+	var _jwtDecode = __webpack_require__(10);
 	
 	var _jwtDecode2 = _interopRequireDefault(_jwtDecode);
 	
@@ -489,25 +514,25 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 8 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var base64_url_decode = __webpack_require__(9);
-	var json_parse = __webpack_require__(11);
+	var base64_url_decode = __webpack_require__(11);
+	var json_parse = __webpack_require__(13);
 	
 	module.exports = function (token) {
 	  return json_parse(base64_url_decode(token.split('.')[1]));
 	};
 
 /***/ },
-/* 9 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var Base64 = __webpack_require__(10);
+	var Base64 = __webpack_require__(12);
 	
 	module.exports = function (str) {
 	  var output = str.replace(/-/g, "+").replace(/_/g, "/");
@@ -534,7 +559,7 @@
 	};
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -595,7 +620,7 @@
 	})();
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -605,7 +630,7 @@
 	};
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -618,7 +643,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _riot = __webpack_require__(13);
+	var _riot = __webpack_require__(2);
 	
 	var _riot2 = _interopRequireDefault(_riot);
 	
@@ -645,7 +670,7 @@
 	        type: 'GET',
 	        url: self.config.apiBaseUrl + '/analyze/ping/'
 	    }).done(function (response) {
-	        self.apiMessage = response.response;
+	        self.apiMessage = response;
 	        self.apiStatus = 'success';
 	    }).error(function () {
 	        self.api = 'Missing valid token, unable to call API';
@@ -674,34 +699,6 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = riot;
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _riot = __webpack_require__(13);
-	
-	var _riot2 = _interopRequireDefault(_riot);
-	
-	_riot2['default'].tag('app-header', '<nav role="navigation" class="navbar navbar-default">\n        <div class="container">\n            <div class="navbar-header">\n                <button type="button" data-target="#menu" data-toggle="collapse" class="navbar-toggle">\n                    <span class="sr-only">Toggle navigation</span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                    <span class="icon-bar"></span>\n                </button>\n                <a href="#" class="navbar-brand">Service Fabric Multi Deployment Demo</a>\n            </div>\n            <div id="menu" class="collapse navbar-collapse">\n                <ul class="nav navbar-nav navbar-right">\n                    <li><a href="#/profile">Signed in as <span class="username"></span></a></li>\n                    <li><a id="logout" href="#">Logout</a></li>\n                </ul>            \n            </div>\n        </div>\n    </nav>', function (user) {
-	
-	    this.on('mount', function () {
-	        $('.username').html(user.profile.name);
-	        $('#logout').on('click', function () {
-	            user.logout();
-	        });
-	    });
-	});
-
-/***/ },
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -709,11 +706,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _riot = __webpack_require__(13);
+	var _riot = __webpack_require__(2);
 	
 	var _riot2 = _interopRequireDefault(_riot);
 	
-	_riot2['default'].tag('app-content', '<div class="container">\n        <div class="row">\n            <div class="col-sm-3">\n                <h5>Agent status <span class="label label-{ agentStatus }"> { agentMessage } </span></h5>\n            </div>\n            <div id="sendResult"></div>\n            <button onclick={sayHello}>Click me</button>\n            <div id="count"></div>\n        </div>\n    </div>', function (connectionStatus) {
+	_riot2['default'].tag('app-content', '<div class="container">\n          <h3> Service Web Endpoint Status </h3>\n          <h5>Agent status <span class="label label-{ agentStatus }"> { agentMessage } </span></h5>\n         <div class="row">\n            <button id="sendButton" onclick={sendAnalysisTask}>Send Report For Analysis</button>\n            <br></br>\n            <div id="sendResult"></div>\n            <div id="sendWord"></div>\n            <div id="count"></div>\n        </div>\n    </div>', function (connectionStatus) {
 	    var _this = this;
 	
 	    this.updateConnectionStatus = function () {
@@ -731,17 +728,47 @@
 	        _this.updateConnectionStatus();
 	    });
 	
+	    this.SendWords = function () {
+	        $.ajax({
+	            url: connectionStatus.config.apiBaseUrl + '/analyze/AddWord/' + this.randomWord(),
+	            method: 'POST'
+	        }).done(function (wordResult) {
+	            $('#sendWord').html(wordResult);
+	        });
+	    };
+	
 	    this.sendAnalysisTask = function () {
 	        this.sendButton.disabled = true;
+	        $('#sendResult').html('<span>Report sent for Analysis, waiting result....</span>');
+	        this.SendWords();
 	    };
 	
 	    this.getdAnalysisTaskID = function () {
 	        this.sendButton.disabled = true;
 	    };
 	
+	    this.count = function () {
+	        $.ajax({
+	            url: connectionStatus.config.apiBaseUrl + '/analyze/Count?c=' + Math.random(),
+	            dataType: 'text',
+	            method: 'GET'
+	        }).done(function (countResult) {
+	            $('#getResult').html(countResult);
+	        });
+	    };
+	
+	    this.randomWord = function () {
+	        var text = '';
+	        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+	
+	        for (var i = 0; i < 5; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
+	
+	        return text;
+	    };
+	
 	    this.SetGreeting = function () {
 	        $.ajax({
-	            url: serviceUrl + '/voicemailbox/SetGreeting/' + NextGreeting(),
+	            url: connectionStatus.conf.agentBaseUrl + '/voicemailbox/SetGreeting/' + NextGreeting(),
 	            dataType: 'text',
 	            method: 'POST'
 	        }).done(function (setGreetingResult) {
@@ -752,7 +779,7 @@
 	
 	    this.GetMessages = function () {
 	        $.ajax({
-	            url: serviceUrl + '/voicemailbox/GetMessages?c=' + ++getRequestIteration,
+	            url: connectionStatus.conf.agentBaseUrl + '/voicemailbox/GetMessages?c=' + ++getRequestIteration,
 	            dataType: 'text',
 	            method: 'GET'
 	        }).done(function (getMessagesResult) {
@@ -769,7 +796,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _riot = __webpack_require__(13);
+	var _riot = __webpack_require__(2);
 	
 	var _riot2 = _interopRequireDefault(_riot);
 	
@@ -790,65 +817,6 @@
 	    connectionStatus.on(connectionStatus.CHANGED, function () {
 	        _this.updateConnectionStatus();
 	    });
-	});
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _riot = __webpack_require__(13);
-	
-	var _riot2 = _interopRequireDefault(_riot);
-	
-	_riot2['default'].tag('app-result', '<div class="container">\n        <div class="row">\n            <div id="sendAnalysisTask"></div>\n            <div id="getResult"></div>\n            <div id="col-sm-3">\n                <h5>Agent status <span class="label label-{ agentStatus }"> { agentMessage } </span></h5>\n            </div>\n        </div>\n    </div>', function (connectionStatus) {
-	    var _this = this;
-	
-	    this.updateConnectionStatus = function () {
-	        this.apiMessage = connectionStatus.apiMessage;
-	        this.apiStatus = connectionStatus.apiStatus;
-	        this.agentMessage = connectionStatus.agentMessage;
-	        this.agentStatus = connectionStatus.agentStatus;
-	
-	        this.update();
-	    };
-	
-	    this.updateConnectionStatus();
-	
-	    connectionStatus.on(connectionStatus.CHANGED, function () {
-	        _this.updateConnectionStatus();
-	    });
-	
-	    this.SendWords = function () {
-	        $.ajax({
-	            url: connectionStatus.config.apiBaseU + '/analyze/AddWord/' + randomWord(),
-	            method: 'POST'
-	        }).done(function (wordResult) {
-	            $('#sendAnalysisTask').html(wordResult);
-	        });
-	    };
-	
-	    this.count = function () {
-	        $.ajax({
-	            url: connectionStatus.config.apiBaseU + '/analyze/Count?c=' + Math.random(),
-	            dataType: 'text',
-	            method: 'GET'
-	        }).done(function (countResult) {
-	            $('#getResult').html(countResult);
-	        });
-	    };
-	
-	    this.randomWord = function () {
-	        var text = '';
-	        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-	
-	        for (var i = 0; i < 5; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
-	
-	        return text;
-	    };
 	});
 
 /***/ }

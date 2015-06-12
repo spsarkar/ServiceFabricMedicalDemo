@@ -187,3 +187,4 @@ C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\bin\Debug\WebServiceFrontEnd.pdb
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\obj\x64\Debug\WebServiceFrontEnd.exe
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\obj\x64\Debug\WebServiceFrontEnd.pdb
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebService\obj\x64\Debug\WebServiceFrontEnd.csprojResolveAssemblyReference.cache

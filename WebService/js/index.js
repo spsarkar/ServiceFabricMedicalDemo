@@ -9,10 +9,8 @@ var connectionStatus = new ConnectionStatus(config);
 import './views/app-header.tag'
 import './views/app-content.tag'
 import './views/app-footer.tag'
-import './views/app-result.tag'
 
 riot.mount('app-header', config.user);
 riot.mount('app-content', connectionStatus)
-riot.mount('app-result', connectionStatus)
 riot.mount('app-footer', connectionStatus);
 

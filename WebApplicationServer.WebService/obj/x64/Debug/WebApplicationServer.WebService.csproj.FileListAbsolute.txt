@@ -33,3 +33,5 @@ C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplica
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\System.Web.Cors.dll
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\System.Web.Http.Cors.dll
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\System.Web.Http.Cors.xml
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\Microsoft.Owin.Cors.dll
+C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\WebApplicationServer.WebService\bin\Debug\Microsoft.Owin.Cors.xml

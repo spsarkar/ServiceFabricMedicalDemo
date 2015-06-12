@@ -6,6 +6,7 @@
 namespace WebApplicationServer.WebService
 {
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using Owin;
     using WordCount.Common;
 
@@ -16,10 +17,12 @@ namespace WebApplicationServer.WebService
             System.Net.ServicePointManager.DefaultConnectionLimit = 256;
 
             HttpConfiguration config = new HttpConfiguration();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
             FormatterConfig.ConfigureFormatters(config.Formatters);
             RouteConfig.RegisterRoutes(config.Routes);
-
+            appBuilder.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             appBuilder.UseWebApi(config);
         }
     }

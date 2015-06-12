@@ -22,7 +22,7 @@ function updateStatus(self) {
         type: 'GET',
         url: self.config.apiBaseUrl + '/analyze/ping/'
     }).done((response) => {
-        self.apiMessage = response.response
+        self.apiMessage = response
         self.apiStatus = 'success'
     })
     .error(() => {
