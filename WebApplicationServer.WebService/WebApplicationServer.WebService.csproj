@@ -136,9 +136,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="wwwroot\Index.html" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WebApplicationServer.Common\WebApplicationServer.Common.csproj">
       <Project>{bc38f530-fe66-461b-9ccf-37380bfccbb8}</Project>
       <Name>WebApplicationServer.Common</Name>

@@ -16,9 +16,9 @@ namespace WebApplicationServer.Service
         public static void RegisterRoutes(HttpRouteCollection routes)
         {
             routes.MapHttpRoute(
-                name: "AddWord",
-                routeTemplate: "AddWord/{word}",
-                defaults: new {controller = "Default", action = "AddWord"},
+                name: "StartReportAnalysis",
+                routeTemplate: "StartReportAnalysis/{word}",
+                defaults: new {controller = "Default", action = "StartReportAnalysis"},
                 constraints: new {}
                 );
 

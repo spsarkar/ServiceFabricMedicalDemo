@@ -710,7 +710,7 @@
 	
 	var _riot2 = _interopRequireDefault(_riot);
 	
-	_riot2['default'].tag('app-content', '<div class="container">\n          <h3> Service Web Endpoint Status </h3>\n          <h5>Agent status <span class="label label-{ agentStatus }"> { agentMessage } </span></h5>\n         <div class="row">\n            <button id="sendButton" onclick={sendAnalysisTask}>Send Report For Analysis</button>\n            <br></br>\n            <div id="sendResult"></div>\n            <div id="sendWord"></div>\n            <div id="count"></div>\n        </div>\n    </div>', function (connectionStatus) {
+	_riot2['default'].tag('app-content', '<div class="container">\n          <h3>Submit Report Zone </h3>\n         <div class="row">\n            <button id="sendButton" onclick={sendAnalysisTask}>Send Report For Analysis</button>\n            <br></br>\n            <div id="sendResult"></div>\n        </div>\n        <h3>Report Result Zone </h3>\n        <div class="row2">\n            <div id="sendWord"></div>\n            <div id="count"></div>\n        </div>\n    </div>', function (connectionStatus) {
 	    var _this = this;
 	
 	    this.updateConnectionStatus = function () {
@@ -730,7 +730,7 @@
 	
 	    this.SendWords = function () {
 	        $.ajax({
-	            url: connectionStatus.config.apiBaseUrl + '/analyze/AddWord/' + this.randomWord(),
+	            url: connectionStatus.config.apiBaseUrl + '/analyze/StartReportAnalysis/' + this.randomWord(),
 	            method: 'POST'
 	        }).done(function (wordResult) {
 	            $('#sendWord').html(wordResult);

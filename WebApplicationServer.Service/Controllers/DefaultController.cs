@@ -41,7 +41,7 @@ namespace WebApplicationServerService.Controllers
         }
 
         [HttpPut]
-        public async Task<IHttpActionResult> AddWord(string word)
+        public async Task<IHttpActionResult> StartReportAnalysis(string word)
         {
             IReliableQueue<string> queue = await this.stateManager.GetOrAddAsync<IReliableQueue<string>>("inputQueue");
 

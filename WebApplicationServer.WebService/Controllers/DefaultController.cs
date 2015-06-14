@@ -38,12 +38,6 @@ namespace WebApplicationServer.WebService.Controllers
             ServicePartitionResolver.GetDefault(),
             TimeSpan.FromSeconds(10),
             TimeSpan.FromSeconds(3));
-         
-        [HttpGet]
-        public HttpResponseMessage Index()
-        {
-            return this.View("WebApplicationServer.WebService.wwwroot.Index.html", "text/html");
-        }
 
         [HttpGet]
         public HttpResponseMessage ping()
@@ -53,54 +47,7 @@ namespace WebApplicationServer.WebService.Controllers
             message.Content.Headers.Add("Access-Control-Allow-Origin", "*");
             return message;
         }
-
-        [HttpGet]
-        public async Task<HttpResponseMessage> upload()
-        {
-            // Check if the request contains multipart/form-data.
-            if (!Request.Content.IsMimeMultipartContent())
-            {
-                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
-            }
-
-            string root = HttpContext.Current.Server.MapPath("~/App_Data");
-            var provider = new MultipartFormDataStreamProvider(root);
-
-            try
-            {
-                StringBuilder sb = new StringBuilder(); // Holds the response body
-
-                // Read the form data and return an async task.
-                await Request.Content.ReadAsMultipartAsync(provider);
-
-                // This illustrates how to get the form data.
-                foreach (var key in provider.FormData.AllKeys)
-                {
-                    foreach (var val in provider.FormData.GetValues(key))
-                    {
-                        sb.Append(string.Format("{0}: {1}\n", key, val));
-                    }
-                }
-
-                // This illustrates how to get the file names for uploaded files.
-                foreach (var file in provider.FileData)
-                {
-                    FileInfo fileInfo = new FileInfo(file.LocalFileName);
-                    sb.Append(string.Format("Uploaded file: {0} ({1} bytes)\n", fileInfo.Name, fileInfo.Length));
-                }
-
-                HttpResponseMessage message = new HttpResponseMessage();
-                message.Content = new StringContent(sb.ToString(), Encoding.UTF8, "text/html");
-                message.Content.Headers.Add("Access-Control-Allow-Origin", "*");
-                return message;
-            }
-            catch (System.Exception e)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
-            }
-        }
-
-
+                
         [HttpGet]
         public async Task<HttpResponseMessage> Count()
         {
@@ -168,7 +115,7 @@ namespace WebApplicationServer.WebService.Controllers
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> AddWord(string word)
+        public async Task<HttpResponseMessage> StartReportAnalysis(string word)
         {
             // Determine the partition key that should handle the request
             long partitionKey = GetPartitionKey(word);
@@ -184,7 +131,7 @@ namespace WebApplicationServer.WebService.Controllers
             return await servicePartitionClient.InvokeWithRetryAsync(
                 client =>
                 {
-                    Uri serviceAddress = new Uri(client.BaseAddress, string.Format("AddWord/{0}", word));
+                    Uri serviceAddress = new Uri(client.BaseAddress, string.Format("StartReportAnalysis/{0}", word));
 
                     HttpWebRequest request = WebRequest.CreateHttp(serviceAddress);
                     request.Method = "PUT";

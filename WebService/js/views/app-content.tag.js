@@ -3,12 +3,14 @@ import riot from 'riot'
 riot.tag('app-content',
 
     `<div class="container">
-          <h3> Service Web Endpoint Status </h3>
-          <h5>Agent status <span class="label label-{ agentStatus }"> { agentMessage } </span></h5>
+          <h3>Submit Report Zone </h3>
          <div class="row">
             <button id="sendButton" onclick={sendAnalysisTask}>Send Report For Analysis</button>
             <br></br>
             <div id="sendResult"></div>
+        </div>
+        <h3>Report Result Zone </h3>
+        <div class="row2">
             <div id="sendWord"></div>
             <div id="count"></div>
         </div>
@@ -34,7 +36,7 @@ riot.tag('app-content',
 
         this.SendWords = function (){
             $.ajax({
-                url: connectionStatus.config.apiBaseUrl + '/analyze/AddWord/' + this.randomWord(),
+                url: connectionStatus.config.apiBaseUrl + '/analyze/StartReportAnalysis/' + this.randomWord(),
                 method: 'POST'
             })
            .done(function (wordResult) {
