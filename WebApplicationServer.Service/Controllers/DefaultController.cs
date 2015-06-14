@@ -22,36 +22,17 @@ namespace WebApplicationServerService.Controllers
             this.stateManager = stateManager;
         }
 
-        [HttpGet]
-        public async Task<IHttpActionResult> Count()
-        {
-            IReliableDictionary<string, long> statsDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, long>>("statsDictionary");
-
-            using (ITransaction tx = this.stateManager.CreateTransaction())
-            {
-                ConditionalResult<long> result = await statsDictionary.TryGetValueAsync(tx, "Number of Words Processed");
-
-                if (result.HasValue)
-                {
-                    return this.Ok(result.Value);
-                }
-            }
-
-            return this.Ok(0);
-        }
-
         [HttpPut]
-        public async Task<IHttpActionResult> StartReportAnalysis(string word)
+        public async Task<IHttpActionResult> StartReportAnalysis(string jobDetails)
         {
-            IReliableQueue<string> queue = await this.stateManager.GetOrAddAsync<IReliableQueue<string>>("inputQueue");
+            IReliableQueue<string> queue = await this.stateManager.GetOrAddAsync<IReliableQueue<string>>("jobInputQueue");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                await queue.EnqueueAsync(tx, word);
+                await queue.EnqueueAsync(tx, jobDetails);
 
                 await tx.CommitAsync();
             }
-
             return this.Ok();
         }
     }

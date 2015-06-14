@@ -30,37 +30,16 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine
                );
 
             routes.MapHttpRoute(
-                name: "GetActorID",
+                name: "GetAllSubmittedTask",
                 routeTemplate: "{action}",
-                defaults: new {controller = "Default", action = "GetActorID"},
+                defaults: new {controller = "Default", action = "GetAllSubmittedTask"},
                 constraints: new {}
                 );
 
             routes.MapHttpRoute(
-                name: "GetGreeting",
-                routeTemplate: "{action}",
-                defaults: new {controller = "Default", action = "GetGreeting"},
-                constraints: new {}
-                );
-
-            routes.MapHttpRoute(
-                name: "SetGreeting",
-                routeTemplate: "SetGreeting/{greeting}",
-                defaults: new {controller = "Default", action = "SetGreeting"},
-                constraints: new {}
-                );
-
-            routes.MapHttpRoute(
-                name: "GetMessages",
-                routeTemplate: "{action}",
-                defaults: new {controller = "Default", action = "GetMessages"},
-                constraints: new {}
-                );
-
-            routes.MapHttpRoute(
-                name: "LeaveMessage",
-                routeTemplate: "LeaveMessage/{message}",
-                defaults: new {controller = "Default", action = "LeaveMessage"},
+                name: "SubmitTask",
+                routeTemplate: "SubmitTask/{message}",
+                defaults: new {controller = "Default", action = "SubmitTask"},
                 constraints: new {}
                 );
 
@@ -68,13 +47,6 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine
                 name: "DeleteMessage",
                 routeTemplate: "{action}",
                 defaults: new {controller = "Default", action = "DeleteMessage"},
-                constraints: new {}
-                );
-
-            routes.MapHttpRoute(
-                name: "DeleteAllMessages",
-                routeTemplate: "{action}",
-                defaults: new {controller = "Default", action = "DeleteAllMessages"},
                 constraints: new {}
                 );
 

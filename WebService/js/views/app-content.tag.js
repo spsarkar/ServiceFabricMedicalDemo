@@ -75,22 +75,9 @@ riot.tag('app-content',
             return text;
         }
 
-
-        this.SetGreeting = function() {
+        this.GetAllSubmittedTask = function(){
             $.ajax({
-                url:  connectionStatus.conf.agentBaseUrl + '/voicemailbox/SetGreeting/' + NextGreeting(),
-                dataType: 'text',
-                method: 'POST'
-            })
-           .done(function (setGreetingResult) {
-               $('#setGreeting').html(setGreetingResult)
-               GetGreeting();
-           });
-        }
-
-        this.GetMessages = function(){
-            $.ajax({
-                url: connectionStatus.conf.agentBaseUrl + '/voicemailbox/GetMessages?c=' + (++getRequestIteration),
+                url: connectionStatus.conf.agentBaseUrl + '/dispense/GetAllSubmittedTask?c=' + (++getRequestIteration),
                 dataType: 'text',
                 method: 'GET'
             })

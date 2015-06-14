@@ -35,7 +35,7 @@ function updateStatus(self) {
 
     $.ajax({
         type: 'GET',
-        url: self.config.agentBaseUrl + '/voicemailbox/ping/'
+        url: self.config.agentBaseUrl + '/dispense/ping/'
     }).done((response) => {
         self.agentMessage = response
         self.agentStatus = 'success'

@@ -8,10 +8,16 @@ namespace WebApplicationServer.Service
     using System;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
     using Microsoft.ServiceFabric.Data;
     using Microsoft.ServiceFabric.Data.Collections;
     using Microsoft.ServiceFabric.Services;
+    using Microsoft.Azure.Service.Fabric.ComputeEngine.Interfaces;
     using WordCount.Common;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+
+
 
     /// <summary>
     /// Sample Service Fabric persistent service for counting words.
@@ -19,6 +25,7 @@ namespace WebApplicationServer.Service
     public class WebApplicationServerService : StatefulService
     {        
         public const string ServiceEventSourceName = "WebApplicationServerService";
+        static Random _r = new Random();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WebApplicationServer"/> class. 
@@ -32,10 +39,7 @@ namespace WebApplicationServer.Service
         {
             ServiceEventSource.Current.RunAsyncInvoked(ServiceEventSourceName);
 
-            IReliableQueue<string> inputQueue = await this.StateManager.GetOrAddAsync<IReliableQueue<string>>("inputQueue");
-            IReliableDictionary<string, long> wordCountDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("wordCountDictionary");
-            IReliableDictionary<string, long> statsDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("statsDictionary");
-
+            IReliableQueue<string> inputQueue = await this.StateManager.GetOrAddAsync<IReliableQueue<string>>("jobInputQueue");
             while (true)
             {
                 cancellationToken.ThrowIfCancellationRequested();
@@ -48,30 +52,11 @@ namespace WebApplicationServer.Service
 
                         if (dequeuReply.HasValue)
                         {
-                            string word = dequeuReply.Value;
-
-                            long count = await wordCountDictionary.AddOrUpdateAsync(
-                                tx,
-                                word,
-                                1,
-                                (key, oldValue) => oldValue + 1);
-
-                            long numberOfProcessedWords = await statsDictionary.AddOrUpdateAsync(
-                                tx,
-                                "Number of Words Processed",
-                                1,
-                                (key, oldValue) => oldValue + 1);
-
-                            long queueLength = await inputQueue.GetCountAsync();
+                            string taskDetails = dequeuReply.Value;
+                            //Send for Processing to the web service hosting the actors
+                            submitDemoComputeJob(taskDetails);
 
                             await tx.CommitAsync();
-
-                            ServiceEventSource.Current.RunAsyncStatus(
-                                this.ServicePartition.PartitionInfo.Id,
-                                numberOfProcessedWords,
-                                queueLength,
-                                word,
-                                count);
                         }
                     }
 
@@ -94,6 +79,29 @@ namespace WebApplicationServer.Service
                     ServiceEventSource.Current.MessageEvent(exception.ToString());
                 }
             }
+        }
+
+        private void submitDemoComputeJob(string taskDetails)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:44304/");
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            string jobUrl = "/dispense/SetGreeting/" + _r.Next();
+
+            var response = client.PostAsJsonAsync(jobUrl, taskDetails).Result;
+            string msg;
+
+            if (response.IsSuccessStatusCode)
+            {
+                msg = "Distributed Job --- {0} ----  submitted successfully" + taskDetails;
+            }
+            else
+            {
+                msg = "Error Code" + response.StatusCode + " : Message - " + response.ReasonPhrase;
+                
+            }
+            ServiceEventSource.Current.MessageEvent(msg);
         }
 
         protected override ICommunicationListener CreateCommunicationListener()

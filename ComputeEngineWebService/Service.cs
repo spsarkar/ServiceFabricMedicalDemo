@@ -24,7 +24,7 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine
         /// <returns></returns>
         protected override ICommunicationListener CreateCommunicationListener()
         {
-            return new OwinCommunicationListener("voicemailbox", new Startup());
+            return new OwinCommunicationListener("dispense", new Startup());
         }
     }
 }

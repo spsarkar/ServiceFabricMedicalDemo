@@ -136,6 +136,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ComputeEngine.Interfaces\ComputeEngine.Interfaces.csproj">
+      <Project>{0e651e1f-eb7a-4ef7-a806-fa42e5839088}</Project>
+      <Name>ComputeEngine.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApplicationServer.Common\WebApplicationServer.Common.csproj">
       <Project>{bc38f530-fe66-461b-9ccf-37380bfccbb8}</Project>
       <Name>WebApplicationServer.Common</Name>

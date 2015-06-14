@@ -137,7 +137,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="wwwroot\Index.html" />
     <EmbeddedResource Include="wwwroot\jquery-2.1.3.min.js" />
   </ItemGroup>
   <ItemGroup>

@@ -681,7 +681,7 @@
 	
 	    $.ajax({
 	        type: 'GET',
-	        url: self.config.agentBaseUrl + '/voicemailbox/ping/'
+	        url: self.config.agentBaseUrl + '/dispense/ping/'
 	    }).done(function (response) {
 	        self.agentMessage = response;
 	        self.agentStatus = 'success';
@@ -766,20 +766,9 @@
 	        return text;
 	    };
 	
-	    this.SetGreeting = function () {
+	    this.GetAllSubmittedTask = function () {
 	        $.ajax({
-	            url: connectionStatus.conf.agentBaseUrl + '/voicemailbox/SetGreeting/' + NextGreeting(),
-	            dataType: 'text',
-	            method: 'POST'
-	        }).done(function (setGreetingResult) {
-	            $('#setGreeting').html(setGreetingResult);
-	            GetGreeting();
-	        });
-	    };
-	
-	    this.GetMessages = function () {
-	        $.ajax({
-	            url: connectionStatus.conf.agentBaseUrl + '/voicemailbox/GetMessages?c=' + ++getRequestIteration,
+	            url: connectionStatus.conf.agentBaseUrl + '/dispense/GetAllSubmittedTask?c=' + ++getRequestIteration,
 	            dataType: 'text',
 	            method: 'GET'
 	        }).done(function (getMessagesResult) {

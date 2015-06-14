@@ -13,14 +13,10 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Interfaces
     public interface IComputeEngineActor : IActor
     {
         [Readonly]
-        Task<List<Voicemail>> GetMessagesAsync();
+        Task<List<DispensedTask>> GetTaskListAsync();
 
-        [Readonly]
-        Task<string> GetGreetingAsync();
-
-        Task LeaveMessageAsync(string message);
-        Task SetGreetingAsync(string greeting);
-        Task DeleteMessageAsync(Guid messageId);
-        Task DeleteAllMessagesAsync();
+        Task SubmitTaskAsync(string message);
+        Task DeleteTaskAsync(Guid messageId);
+        Task CleanAllTasksAsync();
     }
 }

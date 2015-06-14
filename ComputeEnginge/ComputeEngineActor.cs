@@ -13,61 +13,33 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine
     using Microsoft.Azure.Service.Fabric.ComputeEngine.Interfaces;
     using Microsoft.ServiceFabric.Actors;
 
-    public class ComputeEngineActor : Actor<VoicemailBox>, IComputeEngineActor
+    public class ComputeEngineActor : Actor<DispensedTaskList>, IComputeEngineActor
     {
-        public Task<List<Voicemail>> GetMessagesAsync()
+        public Task<List<DispensedTask>> GetTaskListAsync()
         {
-            return Task.FromResult(this.State.MessageList);
+            return Task.FromResult(this.State.TaskList);
         }
 
-        public Task<string> GetGreetingAsync()
+        public Task SubmitTaskAsync(string message)
         {
-            if (string.IsNullOrEmpty(this.State.Greeting))
-            {
-                ConfigurationSettings configSettings = this.Host.ActivationContext.GetConfigurationPackageObject("Config").Settings;
-                ConfigurationSection configSection = configSettings.Sections.FirstOrDefault(s => (s.Name == "GreetingConfig"));
-                if (configSection != null)
-                {
-                    ConfigurationProperty defaultGreeting = configSection.Parameters.FirstOrDefault(p => (p.Name == "DefaultGreeting"));
-                    if (defaultGreeting != null)
-                    {
-                        return Task.FromResult(defaultGreeting.Value);
-                    }
-                }
-
-                return Task.FromResult("No one is available, please leave a message after the beep.");
-            }
-
-            return Task.FromResult(this.State.Greeting);
-        }
-
-        public Task LeaveMessageAsync(string message)
-        {
-            this.State.MessageList.Add(
-                new Voicemail
+            this.State.TaskList.Add(
+                new DispensedTask
                 {
                     Id = Guid.NewGuid(),
-                    Message = message,
+                    TaskMessage = message,
                     ReceivedAt = DateTime.Now
                 });
 
             return Task.FromResult(true);
         }
 
-        public Task SetGreetingAsync(string greeting)
+        public Task DeleteTaskAsync(Guid messageId)
         {
-            this.State.Greeting = greeting;
-
-            return Task.FromResult(true);
-        }
-
-        public Task DeleteMessageAsync(Guid messageId)
-        {
-            for (int i = 0; i < this.State.MessageList.Count; i++)
+            for (int i = 0; i < this.State.TaskList.Count; i++)
             {
-                if (this.State.MessageList[i].Id.Equals(messageId))
+                if (this.State.TaskList[i].Id.Equals(messageId))
                 {
-                    this.State.MessageList.RemoveAt(i);
+                    this.State.TaskList.RemoveAt(i);
                     break;
                 }
             }
@@ -75,9 +47,9 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine
             return Task.FromResult(true);
         }
 
-        public Task DeleteAllMessagesAsync()
+        public Task CleanAllTasksAsync()
         {
-            this.State.MessageList.Clear();
+            this.State.TaskList.Clear();
 
             return Task.FromResult(true);
         }

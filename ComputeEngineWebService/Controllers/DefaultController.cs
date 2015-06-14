@@ -29,14 +29,6 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
         private static IComputeEngineActor computeEngineActor = ActorProxy.Create<IComputeEngineActor>(actorId, serviceUri);
 
         [HttpGet]
-        public HttpResponseMessage Index()
-        {
-            //TODO: Add error handling.
-
-            return this.View("Microsoft.Azure.Service.Fabric.ComputeEngine.wwwroot.Index.html", "text/html");
-        }
-
-        [HttpGet]
         public HttpResponseMessage ping()
         {
             HttpResponseMessage message = new HttpResponseMessage();
@@ -46,44 +38,22 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage GetActorID()
+        public async Task<HttpResponseMessage> GetAllSubmittedTask()
         {
             //TODO: Add error handling.
 
-            HttpResponseMessage httpResponse = new HttpResponseMessage();
-            httpResponse.Content = new StringContent(actorId.ToString(), Encoding.UTF8, "text/html");
-            return httpResponse;
-        }
-
-        [HttpGet]
-        public async Task<HttpResponseMessage> GetGreeting()
-        {
-            //TODO: Add error handling.
-
-            String greetings = await computeEngineActor.GetGreetingAsync();
-
-            HttpResponseMessage message = new HttpResponseMessage();
-            message.Content = new StringContent(greetings, Encoding.UTF8, "text/html");
-            return message;
-        }
-
-        [HttpGet]
-        public async Task<HttpResponseMessage> GetMessages()
-        {
-            //TODO: Add error handling.
-
-            List<Voicemail> messageList = await computeEngineActor.GetMessagesAsync();
+            List<DispensedTask> TaskMessageList = await computeEngineActor.GetTaskListAsync();
 
             StringBuilder sb = new StringBuilder();
             sb.Append("<table border=\"1\"><tr><td>MESSAGE ID</td><td>RECEIVED AT</td><td>MESSAGE TEXT</td></tr>");
-            foreach (Voicemail vMail in messageList.OrderBy(item => item.ReceivedAt))
+            foreach (DispensedTask task in TaskMessageList.OrderBy(item => item.ReceivedAt))
             {
                 sb.Append("<tr><td>");
-                sb.Append(vMail.Id);
+                sb.Append(task.Id);
                 sb.Append("</td><td>");
-                sb.Append(vMail.ReceivedAt.ToString());
+                sb.Append(task.ReceivedAt.ToString());
                 sb.Append("</td><td>");
-                sb.Append(vMail.Message);
+                sb.Append(task.TaskMessage);
                 sb.Append("</td></tr>");
             }
 
@@ -95,67 +65,15 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> SetGreeting(string greeting)
+        public async Task<HttpResponseMessage> SubmitTask(string message)
         {
             //TODO: Add error handling.
 
-            await computeEngineActor.SetGreetingAsync(greeting);
-
-            HttpResponseMessage httpResponse = new HttpResponseMessage();
-            httpResponse.Content =
-                new StringContent(String.Format("Greeting Message: {0} <br/>Time Updated: {1}.", greeting, DateTime.Now.ToString()), Encoding.UTF8, "text/html");
-            return httpResponse;
-        }
-
-        [HttpPost]
-        public async Task<HttpResponseMessage> LeaveMessage(string message)
-        {
-            //TODO: Add error handling.
-
-            await computeEngineActor.LeaveMessageAsync(message);
+            await computeEngineActor.SubmitTaskAsync(message);
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             httpResponse.Content =
                 new StringContent(String.Format("Message Text: {0} <br/>Time Sent: {1} ", message, DateTime.Now.ToString()), Encoding.UTF8, "text/html");
-            return httpResponse;
-        }
-
-        [HttpPost]
-        public async Task<HttpResponseMessage> DeleteMessage()
-        {
-            //TODO: Add error handling.
-
-            HttpResponseMessage httpResponse = new HttpResponseMessage();
-
-            List<Voicemail> messageList = await computeEngineActor.GetMessagesAsync();
-
-            if (messageList.Count < 1)
-            {
-                httpResponse.Content = new StringContent("Voicemail inbox is empty. Nothing to delete.", Encoding.UTF8, "text/html");
-                return httpResponse;
-            }
-
-            Voicemail vMail = messageList.OrderBy(item => item.ReceivedAt).First();
-
-            await computeEngineActor.DeleteMessageAsync(vMail.Id);
-
-            httpResponse.Content =
-                new StringContent(
-                    String.Format("Message Text: {0} <br/>Time Deleted: {1}.", vMail.Message, DateTime.Now.ToString()),
-                    Encoding.UTF8,
-                    "text/html");
-            return httpResponse;
-        }
-
-        [HttpPost]
-        public async Task<HttpResponseMessage> DeleteAllMessages()
-        {
-            //TODO: Add error handling.
-
-            await computeEngineActor.DeleteAllMessagesAsync();
-
-            HttpResponseMessage httpResponse = new HttpResponseMessage();
-            httpResponse.Content = new StringContent(String.Format("Time Deleted: {0}.", DateTime.Now.ToString()), Encoding.UTF8, "text/html");
             return httpResponse;
         }
     }
