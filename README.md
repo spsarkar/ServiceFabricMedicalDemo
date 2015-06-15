@@ -20,4 +20,8 @@ ServiceFabricMedicalDemo  includes two service Fabric Application:
 
 Dependencies and Requirements
 ---------------------------
-This project requires you to get Azure Service Fabric SDK installed in your development machine. Please follow the instructions ( https://azure.microsoft.com/en-us/documentation/articles/service-fabric-get-started/ ) to getting Service Fabric SDK installed. The project WebServiceFrontEndApplication uses RiotJs ( https://muut.com/riotjs/ ) and webpack ( http://webpack.github.io/ ).  The Javascript code lines are actually  build relies on npm to be installed in the development machine.
+This project requires you to get Azure Service Fabric SDK installed in your development machine. Please follow the instructions ( https://azure.microsoft.com/en-us/documentation/articles/service-fabric-get-started/ ) to getting Service Fabric SDK installed. The project WebServiceFrontEndApplication uses RiotJs ( https://muut.com/riotjs/ ) and webpack ( http://webpack.github.io/ ).  The Javascript code lines are actually  build relies on nodejs ( https://nodejs.org/ ) npm to be installed in the development machine.
+
+WebApplicationServer.WebService
+---------------------------------
+The web frondend ( WebServiceFrontEnd)  uses OAuth Authentication ( https://auth0.com/ ). 
