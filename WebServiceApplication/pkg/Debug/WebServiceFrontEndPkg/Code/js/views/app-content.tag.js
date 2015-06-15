@@ -39,8 +39,8 @@ riot.tag('app-content',
                 url: connectionStatus.config.apiBaseUrl + '/analyze/StartReportAnalysis/' + this.randomWord(),
                 method: 'POST'
             })
-           .done(function (wordResult) {
-               $('#sendWord').html(wordResult);
+           .done(function (taskSubmitResult) {
+               $('#sendWord').html(taskSubmitResult);
            });
         }
 
@@ -75,22 +75,9 @@ riot.tag('app-content',
             return text;
         }
 
-
-        this.SetGreeting = function() {
+        this.GetAllSubmittedTask = function(){
             $.ajax({
-                url:  connectionStatus.conf.agentBaseUrl + '/dispense/SetGreeting/' + NextGreeting(),
-                dataType: 'text',
-                method: 'POST'
-            })
-           .done(function (setGreetingResult) {
-               $('#setGreeting').html(setGreetingResult)
-               GetGreeting();
-           });
-        }
-
-        this.GetMessages = function(){
-            $.ajax({
-                url: connectionStatus.conf.agentBaseUrl + '/dispense/GetMessages?c=' + (++getRequestIteration),
+                url: connectionStatus.conf.agentBaseUrl + '/dispense/GetAllSubmittedTask?c=' + (++getRequestIteration),
                 dataType: 'text',
                 method: 'GET'
             })

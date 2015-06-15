@@ -38,6 +38,34 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
         }
 
         [HttpGet]
+        public async Task<HttpResponseMessage> GetTaskDetail(string messageId)
+        {
+            //TODO: Add error handling.
+
+            List<DispensedTask> TaskMessageList = await computeEngineActor.GetTaskListAsync();
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<table border=\"1\"><tr><td>Task ID</td><td>RECEIVED AT</td><td>TASK DETAILS</td></tr>");
+            foreach (DispensedTask task in TaskMessageList.OrderBy(item => item.ReceivedAt))
+            {
+                if (task.Id.Equals(messageId))
+                {
+                    sb.Append("<tr><td>");
+                    sb.Append(task.Id);
+                    sb.Append("</td><td>");
+                    sb.Append(task.ReceivedAt.ToString());
+                    sb.Append("</td><td>");
+                    sb.Append(task.TaskMessage);
+                    sb.Append("</td></tr>");
+                }
+            }
+
+            HttpResponseMessage message = new HttpResponseMessage();
+            message.Content = new StringContent(sb.ToString(), Encoding.UTF8, "text/html");
+            return message;
+        }
+
+        [HttpGet]
         public async Task<HttpResponseMessage> GetAllSubmittedTask()
         {
             //TODO: Add error handling.

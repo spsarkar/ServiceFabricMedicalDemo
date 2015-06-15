@@ -87,7 +87,7 @@ namespace WebApplicationServer.Service
             client.BaseAddress = new Uri("http://localhost:44304/");
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            string jobUrl = "/dispense/SetGreeting/" + _r.Next();
+            string jobUrl = "/dispense/SubmitTask/" + _r.Next();
 
             var response = client.PostAsJsonAsync(jobUrl, taskDetails).Result;
             string msg;

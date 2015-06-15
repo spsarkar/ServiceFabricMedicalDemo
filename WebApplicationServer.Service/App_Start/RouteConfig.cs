@@ -21,13 +21,6 @@ namespace WebApplicationServer.Service
                 defaults: new {controller = "Default", action = "StartReportAnalysis"},
                 constraints: new {}
                 );
-
-            routes.MapHttpRoute(
-                name: "Count",
-                routeTemplate: "Count",
-                defaults: new {controller = "Default", action = "Count"},
-                constraints: new {}
-                );
         }
     }
 }
