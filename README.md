@@ -8,15 +8,15 @@ Included Projects
 ServiceFabricMedicalDemo  includes two service Fabric Application:
 
 *  WebServiceFrontEndApplication Service Fabric Application - which includes the following projects. 
-*   WebServiceFrontEndApplication
-*   WebApplicationServer.WebService
-*   WebApplicationServer.Service
-*   WebApplicationServer.Common
+*     WebServiceFrontEndApplication
+*     WebApplicationServer.WebService
+*     WebApplicationServer.Service
+*     WebApplicationServer.Common
 *  ComputeEngineApplication Service Fabric Application - which the following projects
-*   ComputeEngine.Interfaces
-*   ComputeEngineApplication
-*   ComputeEngineWebService
-*   ComputeEngineActorService
+*     ComputeEngine.Interfaces
+*     ComputeEngineApplication
+*     ComputeEngineWebService
+*     ComputeEngineActorService
 
 Dependencies and Requirements
 ---------------------------
