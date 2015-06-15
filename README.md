@@ -27,7 +27,9 @@ WebApplicationServer.WebService
 The web frondend ( WebServiceFrontEnd)  is a Nancy (http://nancyfx.org/) application which uses OAuth Authentication ( https://auth0.com/). In order to run this project , it is required to configure application in authentication server and add the following setting in  Startup.cs
 
 private readonly string domain = <>
+
 private readonly string clientId = <>
+
 private readonly string clientSecret = <>
 
 
