@@ -24,9 +24,9 @@ namespace WebServiceFrontEnd
     {
         internal const string ConfigurationMethodName = "Configuration";
 
-        private readonly string domain = "combinosticst.auth0.com";
-        private readonly string clientId = "Gwa7en2pSNwc3DsUfifjBakFGBJw6bAV";
-        private readonly string clientSecret = "T5_gyh9tjFaJ894QObzTQ-0eGUfcpbTnYz4FDAyD98BIgz-kOv4mGl_aLEo4J6MW";
+        private readonly string domain = "";
+        private readonly string clientId = "";
+        private readonly string clientSecret = "";
 
         public void Configuration(IAppBuilder app)
         {
