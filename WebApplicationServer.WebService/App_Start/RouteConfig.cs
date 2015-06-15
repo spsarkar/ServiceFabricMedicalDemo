@@ -30,13 +30,6 @@ namespace WebApplicationServer.WebService
                 );
 
             routes.MapHttpRoute(
-             name: "UploadAction",
-             routeTemplate: "Submit/upload",
-             defaults: new { controller = "Default", action = "upload" },
-             constraints: new { }
-             );
-
-            routes.MapHttpRoute(
                 name: "Files",
                 routeTemplate: "Files/{name}",
                 defaults: new {controller = "File", action = "Get"},

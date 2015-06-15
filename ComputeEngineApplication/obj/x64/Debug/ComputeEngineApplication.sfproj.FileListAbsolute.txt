@@ -1,1 +1,2 @@
 C:\SourceCode\Service Fabric\ServiceFabricMedical.Demo.WebApplication\ComputeEngineApplication\obj\x64\Debug\ComputeEngineApplication.sfprojResolveAssemblyReference.cache
+C:\SourceCode\Service Fabric\Medical_github\ServiceFabricMedical.Demo.WebApplication\ComputeEngineApplication\obj\x64\Debug\ComputeEngineApplication.sfprojResolveAssemblyReference.cache

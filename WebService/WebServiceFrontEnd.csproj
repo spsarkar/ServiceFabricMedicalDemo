@@ -168,13 +168,6 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup>
-    <Content Include="css\appcontent.css" />
-    <Content Include="css\cornerstone.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="css\dragdrop.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="css\index.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
