@@ -39,8 +39,8 @@ riot.tag('app-content',
                 url: connectionStatus.config.apiBaseUrl + '/analyze/StartReportAnalysis/' + this.randomWord(),
                 method: 'POST'
             })
-           .done(function (wordResult) {
-               $('#sendWord').html(wordResult);
+           .done(function (taskSubmitResult) {
+               $('#sendWord').html(taskSubmitResult);
            });
         }
 

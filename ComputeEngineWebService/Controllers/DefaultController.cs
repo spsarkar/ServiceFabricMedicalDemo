@@ -45,7 +45,7 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
             List<DispensedTask> TaskMessageList = await computeEngineActor.GetTaskListAsync();
 
             StringBuilder sb = new StringBuilder();
-            sb.Append("<table border=\"1\"><tr><td>MESSAGE ID</td><td>RECEIVED AT</td><td>MESSAGE TEXT</td></tr>");
+            sb.Append("<table border=\"1\"><tr><td>Task ID</td><td>RECEIVED AT</td><td>TASK DETAILS</td></tr>");
             foreach (DispensedTask task in TaskMessageList.OrderBy(item => item.ReceivedAt))
             {
                 sb.Append("<tr><td>");
@@ -73,7 +73,7 @@ namespace Microsoft.Azure.Service.Fabric.ComputeEngine.Controllers
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             httpResponse.Content =
-                new StringContent(String.Format("Message Text: {0} <br/>Time Sent: {1} ", message, DateTime.Now.ToString()), Encoding.UTF8, "text/html");
+                new StringContent(String.Format("Job ---- {0} --- Submitted <br/>Time Submitted: {1} ", message, DateTime.Now.ToString()), Encoding.UTF8, "text/html");
             return httpResponse;
         }
     }
